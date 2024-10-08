@@ -1,8 +1,9 @@
 const projectModel = 
   require("../models/projectModel");
 
-function getAllProjects(req, res) {
-  const projects = projectModel.getAllProjects();
+async function getAllProjects(req, res) {
+  const projects = await projectModel.getAllProjects();
+  
   if (projects.length > 0) 
     res.status(200).json(projects);
   else 
