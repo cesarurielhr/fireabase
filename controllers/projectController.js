@@ -10,10 +10,10 @@ async function getAllProjects(req, res) {
     res.status(404).json({ code:404, message: "No se encontraron proyectos" });
 }
 
-function createProject(req, res) {
+async function createProject(req, res) {
   //Validaciones de estructura
   const newProject = 
-    projectModel.createProject(req.body);
+    await projectModel.createProject(req.body);
   res.status(201).json(newProject);
 }
 
